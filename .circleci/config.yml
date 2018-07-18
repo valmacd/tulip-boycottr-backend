@@ -34,7 +34,7 @@ jobs:
       - persist_to_workspace:
           root: /home/circleci/project
           paths:
-            - *
+            - ./*
   deploy:
     <<: *set-working-directory
     docker:
@@ -42,8 +42,11 @@ jobs:
     steps:
       - *attach-workspace
       - run:
-          name: Install awscli
+          name: Install awsebcli
           command: sudo pip install awsebcli
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
       - run:
           name: Deploy to S3 Bucket
           command: .circleci/scripts/deploy_backend.sh bridge-projects-firebase tulip-boycottr tulip-boycottr-backend-env
