@@ -11,7 +11,7 @@ aliases:
 
 
 jobs:
-  test:
+  build:
     <<: *set-working-directory
     docker:
       - image: circleci/node:8.4.0
@@ -51,14 +51,14 @@ workflows:
   version: 2
   test_deploy:
     jobs:
-      - test
+      - build
       - deploy:
           filters:
             branches:
               only:
                 - master
           requires:
-            - test
+            - build
 
   
 
