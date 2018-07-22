@@ -2,7 +2,6 @@
 const express = require('express'),
       router = express.Router();
 
-
 // 2. define our coffee routes on this express router
 const boycotts = [
     {
