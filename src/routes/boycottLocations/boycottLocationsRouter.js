@@ -44,6 +44,7 @@ const boycotts = [
 
 //GET /boycottLocation
 router.get('/boycottLocation', (req, res) => {
+    
     res.json(boycotts);
 });
 
